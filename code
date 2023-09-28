@@ -1,0 +1,44 @@
+import random
+
+# Initialize game variables
+temperature = 25  # Initial temperature in Celsius
+sea_level = 0  # Initial sea level in meters
+year = 2023  # Initial year
+
+# Main game loop
+while True:
+    # Display current game state
+    print(f"Year: {year}")
+    print(f"Temperature: {temperature}°C")
+    print(f"Sea Level: {sea_level} meters")
+
+    # Prompt user for action
+    print("\nChoose an action:")
+    print("1. Implement mitigation measures")
+    print("2. Adapt to climate change")
+    print("3. Skip a year")
+    print("4. Quit")
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        # Implement mitigation measures
+        temperature -= random.uniform(0.1, 0.5)
+        year += 1
+    elif choice == '2':
+        # Adapt to climate change
+        sea_level += random.uniform(0.05, 0.2)
+        year += 1
+    elif choice == '3':
+        # Skip a year
+        year += 1
+    elif choice == '4':
+        # Quit the game
+        print("Thanks for playing!")
+        break
+    else:
+        print("Invalid choice. Please choose a valid action.")
+
+    # Check for game over conditions
+    if temperature >= 30 or sea_level >= 5:
+        print("Game over! The planet is in crisis.")
+        break
